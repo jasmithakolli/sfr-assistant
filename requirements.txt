@@ -1,0 +1,7 @@
+flask>=3.0.0
+pandas>=2.0.0
+plotly>=5.18.0
+openpyxl>=3.1.0
+rapidfuzz>=3.0.0
+sqlalchemy>=2.0.0
+ollama>=0.2.0

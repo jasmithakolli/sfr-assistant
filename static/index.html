@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SFR Analytics — Signal Failure Intelligence</title>
+    <link rel="stylesheet" href="/static/dashboard.css" />
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-icon">◆</span>
+          <div>
+            <strong>SFR Analytics</strong>
+            <small>Signal Failure Intelligence • Smart insights with natural language</small>
+          </div>
+        </div>
+
+        <section class="sidebar-block">
+          <h3>Quick Queries</h3>
+          <div id="quick-queries" class="chip-list"></div>
+        </section>
+
+        <section class="sidebar-block grow">
+          <h3>Chat History</h3>
+          <div id="chat-history" class="history-list"></div>
+        </section>
+
+        <section class="sidebar-block">
+          <h3>Saved Reports</h3>
+          <div id="saved-reports" class="history-list"></div>
+        </section>
+      </aside>
+
+      <div class="main-column">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <button id="btn-theme" class="btn ghost" title="Toggle theme">◐</button>
+          </div>
+        </header>
+
+        <section class="kpi-row" id="kpi-row"></section>
+
+        <div class="workspace">
+          <section class="panel chat-panel">
+            <div class="panel-head">
+              <h2>Analytics Assistant</h2>
+              <button id="btn-save-report" class="btn small">Save report</button>
+            </div>
+            <div id="chat-messages" class="chat-messages"></div>
+            <form id="chat-form" class="chat-form">
+              <input id="chat-input" type="text" placeholder="Ask: Heatmap, monthly trend, top stations, or root cause analysis…" autocomplete="off" />
+              <button type="submit" class="btn primary">Analyze</button>
+            </form>
+          </section>
+
+          <section class="panel viz-panel">
+            <div class="panel-head">
+              <h2>Visualization</h2>
+              <button id="btn-download-chart" class="btn small ghost" disabled>Download chart</button>
+            </div>
+            <div id="chart-area" class="chart-area">
+              <p class="placeholder">Charts appear here after each query</p>
+            </div>
+            <p id="chart-summary" class="chart-summary"></p>
+          </section>
+        </div>
+
+        <!-- Raw records panel removed per user request -->
+      </div>
+    </div>
+    <script src="/static/dashboard.js"></script>
+    <div id="saved-modal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" id="modal-backdrop"></div>
+      <div class="modal-dialog">
+        <button id="modal-close" class="modal-close">✕</button>
+        <div id="modal-content"></div>
+        <div class="modal-actions">
+          <button id="modal-restore" class="btn">Restore Session</button>
+          <button id="modal-close-2" class="btn ghost">Close</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
